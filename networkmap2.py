@@ -3,18 +3,10 @@ import calendar
 import matplotlib.pyplot as plt
 from networkx.drawing.nx_agraph import graphviz_layout
 from dzcnapyd import dzcnapy_plotlib as dzcnapy
-from sys import argv
-script, filename = argv
-
-txt = open(filename)
-##data = print(txt.read())
+import netmap
 
 #Tree
-lincoln_list = [
-'''
-print(txt.read())
-'''
-]
+#lincoln_list = [
 ## aws logs get-log-events --log-group-name A --log-stream-name a --output text > a.log 
 ## cat a.log | grep -v REJECT | awk '/ / {print $6, $7}' > a-accept.log
 ## vi a-accept.log
@@ -35,9 +27,10 @@ print(txt.read())
 ## that will read in the accepted connection hosts
 ## and type:
 ## :wq
-
+#print(str(netmap))
 #]
-F = nx.DiGraph(lincoln_list)
+F = nx.DiGraph(netmap)
+#F = nx.DiGraph(lincoln_list)
 
 pos = graphviz_layout(F)
 nx.draw_networkx(F, pos, **dzcnapy.attrs)
