@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import dzcnapy_plotlib as dzcnapy
 import csv
 
-with open("nutrients.csv") as infile:
+with open("/home/chrisnelson/move/flowlogs-accept.log") as infile:
     csv_reader = csv.reader(infile)
     G = nx.Graph(csv_reader)
 print(G.nodes())
@@ -19,8 +19,8 @@ mapping = {node: node.title() for node in G if isinstance(node, str)}
 nx.relabel_nodes(G, mapping, copy=False)
 print(G.nodes())
 
-nutrients = set(("B12", "Zn", "D", "B6", "A", "Se", "Cu", "Folates",
-                 "Ca", "Mn", "Thiamin", "Riboflavin", "C", "E", "Niacin"))
+nutrients = set(("172.31.27.238","52.15.159.198","54.194.229.79","91.189.88.152","91.189.91.157","91.189.92.19","91.189.92.20","91.189.92.40","91.189.92.41"))
+
 nutrient_dict = {node: (node in nutrients) for node in G}
 nx.set_node_attributes(G, nutrient_dict, "nutrient")
 
