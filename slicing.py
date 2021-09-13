@@ -15,9 +15,9 @@ def slice_network(G, T, copy=True):
     Remove all edges with weight<T from G or its copy.
     """
     F = G.copy() if copy else G
-    edgelist = list(F.edges(data=True))
+    edgelist = list(F.edges(data="weight"))
     F.remove_edges_from((n1, n2) for n1, n2, w in edgelist
-        if w['weight'] < T)
+        if w < T)
     return F
 
 # Draw different degrees of slicing for a random graph
